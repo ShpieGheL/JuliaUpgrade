@@ -31,10 +31,17 @@
                                     </MenuItem.ToolTip>
                                 </MenuItem>
                                 <Separator/>
-                                <MenuItem Header="Завтрашние наряды" Click="MenuItem_Click_4">
-                                    <MenuItem.ToolTip>
-                                        <ToolTip Content="Показать наряды с завтрашней датой ухода"/>
-                                    </MenuItem.ToolTip>
+                                <MenuItem Header="Завтрашние наряды">
+                                    <MenuItem Header="По дате ухода наряда" Click="MenuItem_Click_4">
+                                        <MenuItem.ToolTip>
+                                            <ToolTip Content="Показать наряды с завтрашней датой ухода"/>
+                                        </MenuItem.ToolTip>
+                                    </MenuItem>
+                                    <MenuItem Header="По дате ухода курьером" Click="MenuItem_Click_18">
+                                        <MenuItem.ToolTip>
+                                            <ToolTip Content="Показать наряды с завтрашней датой ухода курьеру"/>
+                                        </MenuItem.ToolTip>
+                                    </MenuItem>
                                 </MenuItem>
                                 <MenuItem Header="Обновить список" Click="MenuItem_Click_5">
                                     <MenuItem.ToolTip>

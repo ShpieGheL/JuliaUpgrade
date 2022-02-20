@@ -143,6 +143,7 @@ namespace JuliaUpgrade
                             n.Foreground = col;
                 Tab3D3.Text = row["Дата курьера"].ToString();
                 TabT6.Text = row["Время"].ToString();
+                Tab3D5.Text = row["Дата Курьера"].ToString();
             }
             foreach (DataRow row in ds.Tables["Comm"].Rows)
             {
@@ -559,7 +560,7 @@ namespace JuliaUpgrade
             catch
             {
             }
-            co = new OleDbCommand("UPDATE Comm SET Пол='"+sex+"',[Тип лица]='"+face+"',Возраст='"+ Tab3T2.Text + "',[Цвет зубов]='"+Tab3T3.Text+"',Челюсть='"+sk+"',Зубы='"+j+"',Комментарий='"+Tab3T4.Text+"',Цена="+comm+",[Дата курьера]='"+Tab3D3.Text+"',Время='"+TabT6.Text+"' WHERE Номер="+num1, connection);
+            co = new OleDbCommand("UPDATE Comm SET Пол='"+sex+"',[Тип лица]='"+face+"',Возраст='"+ Tab3T2.Text + "',[Цвет зубов]='"+Tab3T3.Text+"',Челюсть='"+sk+"',Зубы='"+j+"',Комментарий='"+Tab3T4.Text+"',Цена="+comm+",[Дата курьера]='"+Tab3D5.Text+"',Время='"+TabT6.Text+"' WHERE Номер="+num1, connection);
             co.ExecuteNonQuery();
             int p = 0;
             string m1, m2;

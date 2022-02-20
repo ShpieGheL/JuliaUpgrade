@@ -17,7 +17,7 @@
         </DatePicker>
         <Label Name="Tab3L3" Margin="10,50,1320,720" FontSize="20" Content="Дата ухода наряда:"/>
         <Label Name="Tab3L34" Margin="10,90,1250,690" FontSize="20" Content="Дата передачи курьеру:"/>
-        <DatePicker Name="Tab3D5" Margin="380,100,1000,685" FontSize="20">
+        <DatePicker Name="Tab3D5" Margin="380,100,1050,685" FontSize="20">
             <DatePicker.ToolTip>
                 <ToolTip Content="Дата передачи работы курьеру"/>
             </DatePicker.ToolTip>
