@@ -407,16 +407,24 @@ namespace JuliaUpgrade
 
         private void PartDel2(object sender, RoutedEventArgs e)
         {
-            Tab3LB4.Items.RemoveAt(Tab3LB4.SelectedIndex);
-            Tab3LB5.Items.RemoveAt(Tab3LB5.SelectedIndex);
-            Tab3LB6.Items.RemoveAt(Tab3LB6.SelectedIndex);
+            if (Tab3LB4.SelectedIndex!= -1)
+            {
+                int ind = Tab3LB4.SelectedIndex;
+                Tab3LB4.Items.RemoveAt(ind);
+                Tab3LB5.Items.RemoveAt(ind);
+                Tab3LB6.Items.RemoveAt(ind);
+            }
         }
 
         private void PartDel1(object sender, RoutedEventArgs e)
         {
-            Tab3LB1.Items.RemoveAt(Tab3LB1.SelectedIndex);
-            Tab3LB2.Items.RemoveAt(Tab3LB2.SelectedIndex);
-            Tab3LB3.Items.RemoveAt(Tab3LB3.SelectedIndex);
+            if (Tab3LB1.SelectedIndex != -1)
+            {
+                int ind = Tab3LB4.SelectedIndex;
+                Tab3LB1.Items.RemoveAt(ind);
+                Tab3LB2.Items.RemoveAt(ind);
+                Tab3LB3.Items.RemoveAt(ind);
+            }
         }
 
         private void Tab3LB4_S(object sender, SelectionChangedEventArgs e)
