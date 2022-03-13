@@ -421,7 +421,7 @@ namespace JuliaUpgrade
         {
             if (Tab3LB1.SelectedIndex != -1)
             {
-                int ind = Tab3LB4.SelectedIndex;
+                int ind = Tab3LB1.SelectedIndex;
                 Tab3LB1.Items.RemoveAt(ind);
                 Tab3LB2.Items.RemoveAt(ind);
                 Tab3LB3.Items.RemoveAt(ind);

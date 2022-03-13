@@ -48,8 +48,8 @@ namespace JuliaUpgrade
                 c = s;
                 break;
             }
-            pathdb = $@"{c}:\Users\{Environment.UserName}\Desktop\JL\JuliaDB.accdb";
-            path = $"{c}:/Users/{Environment.UserName}/Desktop/JL";
+            pathdb = $@"{c}:\Users\malma.DESKTOP-GKEVM3S\Desktop\JL\JuliaDB.accdb";
+            path = $"{c}:/Users/malma.DESKTOP-GKEVM3S/Desktop/JL";
             Uri iconUri = new Uri($"{path}/ic.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri);
             connection = new OleDbConnection($@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={pathdb}");
@@ -800,10 +800,14 @@ namespace JuliaUpgrade
                 string r = ((DataRowView)dataGrid.SelectedItem)["Номер"].ToString();
                 OleDbCommand co = new OleDbCommand("UPDATE Labs SET Статус='" + e + "' WHERE Номер=" + Convert.ToInt32(r), connection);
                 co.ExecuteNonQuery();
+                var m = MessageBox.Show("Обновить список нарядов?", "Обновить список?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 OleDbDataAdapter db1 = new OleDbDataAdapter("SELECT * FROM Labs", connection);
                 DataSet dc = new DataSet();
                 db1.Fill(dc, "Labs");
-                dataGrid.ItemsSource = dc.Tables["Labs"].DefaultView;
+                if (m == MessageBoxResult.Yes)
+                {
+                    dataGrid.ItemsSource = dc.Tables["Labs"].DefaultView;
+                }
                 if (e!="Оплачено")
                 {
                     co = new OleDbCommand("DELETE FROM Control WHERE Описание = '" + $"Прайс наряда №{r}"+"'", connection);
@@ -1416,6 +1420,20 @@ namespace JuliaUpgrade
             d.Fill(dss, "Tax");
             dataGrid5.ItemsSource = dss.Tables["Tax"].DefaultView;
             vi();
+        }
+
+        private void MenuItem_Click_19(object sender, RoutedEventArgs e)
+        {
+            string t = DateTime.Today.AddDays(1).ToString();
+            string tn = "";
+            foreach (char c in t.Take(10))
+            {
+                tn += c;
+            }
+            OleDbDataAdapter da = new OleDbDataAdapter("SELECT Labs.* FROM Labs INNER JOIN Comm ON Labs.Номер = Comm.Номер WHERE Comm.[Дата курьера]='" + tn + "' OR Labs.[Дата ухода]='" + tn + "'", connection);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Labs");
+            dataGrid.ItemsSource = ds.Tables["Labs"].DefaultView;
         }
     }
 }

@@ -42,6 +42,12 @@
                                             <ToolTip Content="Показать наряды с завтрашней датой ухода курьеру"/>
                                         </MenuItem.ToolTip>
                                     </MenuItem>
+                                    <Separator/>
+                                    <MenuItem Header="Показать все завтрашние наряды" Click="MenuItem_Click_19">
+                                        <MenuItem.ToolTip>
+                                            <ToolTip Content="Показать завтрашние наряды по дате ухода курьера и дате ухода"/>
+                                        </MenuItem.ToolTip>
+                                    </MenuItem>
                                 </MenuItem>
                                 <MenuItem Header="Обновить список" Click="MenuItem_Click_5">
                                     <MenuItem.ToolTip>
